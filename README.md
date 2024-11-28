@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/davewalker5/MedicineTracker/workflows/.NET%20Core%20CI%20Build/badge.svg)](https://github.com/davewalker5/MedicineTracker/actions)
 [![GitHub issues](https://img.shields.io/github/issues/davewalker5/MedicineTracker)](https://github.com/davewalker5/MedicineTracker/issues)
-[![Coverage Status](https://coveralls.io/repos/github/davewalker5/MedicineTracker/badge.svg?branch=master)](https://coveralls.io/github/davewalker5/MedicineTracker?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/davewalker5/MedicineTracker/badge.svg?branch=main)](https://coveralls.io/github/davewalker5/MedicineTracker?branch=main)
 [![Releases](https://img.shields.io/github/v/release/davewalker5/MedicineTracker.svg?include_prereleases)](https://github.com/davewalker5/MedicineTracker/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/davewalker5/MedicineTracker/blob/main/LICENSE)
 [![Language](https://img.shields.io/badge/language-c%23-blue.svg)](https://github.com/davewalker5/MedicineTracker/)
