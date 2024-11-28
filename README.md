@@ -14,7 +14,7 @@ The Medicine Tracker is a simple command-line application for tracking the usage
 
 Each medication has a name, a daily dosage, a stock level and a record of the date that medication was last taken.
 
-The application records doses taken, with warning indicators for low stock levels, and maintenance of available medications, their sotck levels and daily dosage.
+The application records doses taken, automatically changing the remaining doses and showing warning indicators for low stock levels, and supports maintenance of available medications, their stock levels and daily dosage.
 
 ## Getting Started
 
