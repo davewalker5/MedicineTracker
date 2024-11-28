@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>MedicineTracker.BusinessLogic</PackageId>
+    <PackageVersion>2.0.0.0</PackageVersion>
+    <Authors>Dave Walker</Authors>
+    <Copyright>Copyright (c) 2023, 2024 Dave Walker</Copyright>
+    <Owners>Dave Walker</Owners>
+    <Summary>Medicine Tracker Business Logic</Summary>
+    <PackageTags>Medicine Tracker logic</PackageTags>
+    <Title>Medicine Tracker Business Logic</Title>
+    <Description>Medicine Tracker Business Logic</Description>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageProjectUrl>https://github.com/davewalker5/MedicineTracker</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <ReleaseVersion>2.0.0.0</ReleaseVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MedicineTracker.Entities\MedicineTracker.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

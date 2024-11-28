@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>MedicineTracker.Entities</PackageId>
+    <PackageVersion>2.0.0.0</PackageVersion>
+    <Authors>Dave Walker</Authors>
+    <Copyright>Copyright (c) 2023, 2024 Dave Walker</Copyright>
+    <Owners>Dave Walker</Owners>
+    <Summary>Medicine Tracker Domain Models</Summary>
+    <PackageTags>Medicine Tracker domain models entities</PackageTags>
+    <Title>Medicine Tracker Domain Models</Title>
+    <Description>Medicine Tracker Domain Models</Description>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageProjectUrl>https://github.com/davewalker5/MedicineTracker</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <ReleaseVersion>2.0.0.0</ReleaseVersion>
+  </PropertyGroup>
+
+</Project>
