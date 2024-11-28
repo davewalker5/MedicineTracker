@@ -1,4 +1,4 @@
-# FlightRecorder
+# MedicineTracker
 
 [![Build Status](https://github.com/davewalker5/MedicineTracker/workflows/.NET%20Core%20CI%20Build/badge.svg)](https://github.com/davewalker5/MedicineTracker/actions)
 [![GitHub issues](https://img.shields.io/github/issues/davewalker5/MedicineTracker)](https://github.com/davewalker5/MedicineTracker/issues)
