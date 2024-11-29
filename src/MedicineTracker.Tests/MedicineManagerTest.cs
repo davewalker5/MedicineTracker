@@ -14,7 +14,7 @@ namespace MedicineTracker.Tests
         private const string SecondMedicationName = "Another Medication";
         private const int DailyDose = 2;
         private const int Stock = 36;
-        private readonly DateTime _initialStockDate = TestUtils.NowWithoutTime().AddDays(-1);
+        private readonly DateTime _initialStockDate = MedicineTrackerDateUtils.TodayWithoutTime().AddDays(-1);
 
         private string _dataFilePath;
         private IMedicineManager _manager;
@@ -121,7 +121,7 @@ namespace MedicineTracker.Tests
         public void TakeDoseForSingleMedicationTest()
         {
             _manager.Read();
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _manager.TakeDose("1");
 
             Assert.AreEqual(Stock - DailyDose, _manager.Medications.ElementAt(0).Stock);
@@ -132,7 +132,7 @@ namespace MedicineTracker.Tests
         public void TakeDoseForAllMedicationsTest()
         {
             _manager.Read();
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _manager.TakeDose("*");
 
             Assert.AreEqual(Stock - DailyDose, _manager.Medications.ElementAt(0).Stock);
@@ -165,7 +165,7 @@ namespace MedicineTracker.Tests
         public void FastForwardForSingleMedicationTest()
         {
             _manager.Read();
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _manager.FastForward("1");
 
             Assert.AreEqual(Stock - DailyDose, _manager.Medications.ElementAt(0).Stock);
@@ -176,7 +176,7 @@ namespace MedicineTracker.Tests
         public void FastForwardForAllMedicationsTest()
         {
             _manager.Read();
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _manager.FastForward("*");
 
             Assert.AreEqual(Stock - DailyDose, _manager.Medications.ElementAt(0).Stock);
@@ -196,7 +196,7 @@ namespace MedicineTracker.Tests
         public void AddMedicationTest()
         {
             _manager.Read();
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _manager.AddMedication(SecondMedicationName);
             Assert.AreEqual(2, _manager.Medications.Count);
 

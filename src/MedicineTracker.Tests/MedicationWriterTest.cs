@@ -1,4 +1,5 @@
-﻿using MedicineTracker.BusinessLogic.Storage;
+﻿using MedicineTracker.BusinessLogic.Stock;
+using MedicineTracker.BusinessLogic.Storage;
 using MedicineTracker.Entities.Tracker;
 
 namespace MedicineTracker.Tests
@@ -9,7 +10,7 @@ namespace MedicineTracker.Tests
         private const string MedicationName = "Some Medication";
         private const int DailyDose = 2;
         private const int Stock = 36;
-        private readonly DateTime _initialStockDate = TestUtils.NowWithoutTime().AddDays(-1);
+        private readonly DateTime _initialStockDate = MedicineTrackerDateUtils.TodayWithoutTime().AddDays(-1);
 
         [TestMethod]
         public void WriteMedicationsTest()

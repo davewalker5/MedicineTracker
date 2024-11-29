@@ -86,8 +86,8 @@ namespace MedicineTracker.BusinessLogic.Stock
         public void FastForward(IEnumerable<Medication> medications, int index)
         {
             var medication = medications.ElementAt(index);
-            var now = DateWithoutTime(DateTime.Now);
-            var stockDate = DateWithoutTime(medication.LastTaken);
+            var now = MedicineTrackerDateUtils.TodayWithoutTime();
+            var stockDate = MedicineTrackerDateUtils.DateWithoutTime(medication.LastTaken);
             var doses = (int)(now - stockDate).TotalDays;
             if (doses > 0)
             {
@@ -156,7 +156,7 @@ namespace MedicineTracker.BusinessLogic.Stock
             // 2: "doses" is < 0, so we're subtracting tablets from the stock i.e. "taking" and need to roll forward the date
             // 3: "doses" is 0, so we're skipping and need to roll forward the date by one day
             int daysToAdvance = doses != 0 ? -doses : 1;
-            var date = DateWithoutTime(stockDate.AddDays(daysToAdvance));
+            var date = MedicineTrackerDateUtils.DateWithoutTime(stockDate.AddDays(daysToAdvance));
 
             // If the resulting date is greater than now, then this is attempting to take doses beyond
             // today, which isn't allowed
@@ -168,13 +168,5 @@ namespace MedicineTracker.BusinessLogic.Stock
 
             return date;
         }
-
-        /// <summary>
-        /// Return a date with the time components set to 0
-        /// </summary>
-        /// <param name="date"></param>
-        /// <returns></returns>
-        private static DateTime DateWithoutTime(DateTime date)
-            => new(date.Year, date.Month, date.Day, 0, 0, 0, 0);
     }
 }
