@@ -57,7 +57,7 @@ namespace MedicineTracker
                         new StockUpdater(),
                         new DoseUpdater(),
                         new MedicationUpdater(),
-                        new MedicationTabulator(settings));
+                        new MedicationTabulator(settings, new ActionGenerator(settings)));
 
                     _manager.Read();
 

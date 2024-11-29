@@ -22,7 +22,7 @@ namespace MedicineTracker.Tests
         public void AddMedicationTest()
         {
             var medications = new List<Medication>();
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.AddMedication(medications, MedicationName);
 
             Assert.AreEqual(1, medications.Count);

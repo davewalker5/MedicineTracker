@@ -8,7 +8,7 @@ namespace MedicineTracker.Tests
     [TestClass]
     public class StockUpdaterTest
     {
-        private readonly DateTime _initialStockDate = TestUtils.NowWithoutTime().AddDays(-1);
+        private readonly DateTime _initialStockDate = MedicineTrackerDateUtils.TodayWithoutTime().AddDays(-1);
         private IList<Medication> _medications = [];
         private IStockUpdater _updater;
 
@@ -50,7 +50,7 @@ namespace MedicineTracker.Tests
         public void AddStockTest()
         {
             _medications[0].Stock = 5;
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.AddStock(_medications, 0, 3);
 
             Assert.AreEqual(8, _medications[0].Stock);
@@ -61,7 +61,7 @@ namespace MedicineTracker.Tests
         public void DecrementSingleMedicationStockTest()
         {
             _medications[0].Stock = 5;
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.Decrement(_medications, 0, 1);
 
             Assert.AreEqual(3, _medications[0].Stock);
@@ -74,7 +74,7 @@ namespace MedicineTracker.Tests
             _medications[0].Stock = 9;
             _medications[1].Stock = 7;
 
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.Decrement(_medications, 1);
 
             Assert.AreEqual(7, _medications[0].Stock);
@@ -116,7 +116,7 @@ namespace MedicineTracker.Tests
             _medications[0].Stock = 5;
             _medications[0].LastTaken = _initialStockDate;
 
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.FastForward(_medications, 0);
 
             Assert.AreEqual(3, _medications[0].Stock);
@@ -132,7 +132,7 @@ namespace MedicineTracker.Tests
             _medications[1].Stock = 7;
             _medications[1].LastTaken = _initialStockDate;
 
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.FastForward(_medications);
 
             Assert.AreEqual(7, _medications[0].Stock);
@@ -148,7 +148,7 @@ namespace MedicineTracker.Tests
             _medications[0].Stock = 5;
             _medications[0].LastTaken = _initialStockDate;
 
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.Skip(_medications, 0);
 
             Assert.AreEqual(5, _medications[0].Stock);
@@ -161,7 +161,7 @@ namespace MedicineTracker.Tests
             _medications[0].Stock = 5;
             _medications[0].LastTaken = _initialStockDate;
 
-            var expectedDate = TestUtils.NowWithoutTime();
+            var expectedDate = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.Skip(_medications);
 
             Assert.AreEqual(5, _medications[0].Stock);
@@ -173,7 +173,7 @@ namespace MedicineTracker.Tests
         public void CannotTakeFutureDoseForSingleMedicationTest()
         {
             _medications[0].Stock = 5;
-            _medications[0].LastTaken = TestUtils.NowWithoutTime();
+            _medications[0].LastTaken = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.Decrement(_medications, 0, 1);
         }
 
@@ -182,7 +182,7 @@ namespace MedicineTracker.Tests
         public void CannotTakeFutureDoseForAllMedicationsTest()
         {
             _medications[0].Stock = 5;
-            _medications[0].LastTaken = TestUtils.NowWithoutTime();
+            _medications[0].LastTaken = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.Decrement(_medications, 1);
         }
 
@@ -191,7 +191,7 @@ namespace MedicineTracker.Tests
         public void CannotSkipFutureDoseForSingleMedicationTest()
         {
             _medications[0].Stock = 5;
-            _medications[0].LastTaken = TestUtils.NowWithoutTime();
+            _medications[0].LastTaken = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.Skip(_medications, 0);
         }
 
@@ -200,7 +200,7 @@ namespace MedicineTracker.Tests
         public void CannotSkipFutureDoseForAllMedicationsTest()
         {
             _medications[0].Stock = 5;
-            _medications[0].LastTaken = TestUtils.NowWithoutTime();
+            _medications[0].LastTaken = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.Skip(_medications);
         }
     }

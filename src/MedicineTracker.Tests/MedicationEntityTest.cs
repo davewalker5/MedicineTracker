@@ -1,4 +1,5 @@
-﻿using MedicineTracker.Entities.Tracker;
+﻿using MedicineTracker.BusinessLogic.Stock;
+using MedicineTracker.Entities.Tracker;
 
 namespace MedicineTracker.Tests
 {
@@ -6,7 +7,7 @@ namespace MedicineTracker.Tests
     public class MedicationEntityTest
     {
         private Medication _medication;
-        private readonly DateTime _initialStockDate = TestUtils.NowWithoutTime();
+        private readonly DateTime _initialStockDate = MedicineTrackerDateUtils.TodayWithoutTime();
 
         [TestInitialize]
         public void TestInitialise()
