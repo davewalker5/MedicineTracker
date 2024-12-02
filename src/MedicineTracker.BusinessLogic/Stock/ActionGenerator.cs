@@ -29,7 +29,7 @@ namespace MedicineTracker.BusinessLogic.Stock
                 actions.Add(action);
             }
 
-            if (medication.DaysRemaining() <= _settings.WarningDays)
+            if (medication.DaysRemaining() <= _settings.LeadTimeDays)
             {
                 string action = _resources.GetString("OrderMoreAction");
                 actions.Add(action);

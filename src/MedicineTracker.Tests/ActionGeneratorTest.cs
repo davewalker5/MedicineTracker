@@ -7,7 +7,7 @@ namespace MedicineTracker.Tests
     [TestClass]
     public class ActionGeneratorTest
     {
-        private const int WarningDays = 14;
+        private const int LeadTimeDays = 14;
         private const string TakeDoseAction = "Take dose";
         private const string OrderMoreAction = "Order more";
 
@@ -16,7 +16,7 @@ namespace MedicineTracker.Tests
         [TestInitialize]
         public void Initialise()
         {
-            _generator = new(new ApplicationSettings{WarningDays = WarningDays});
+            _generator = new(new ApplicationSettings{LeadTimeDays = LeadTimeDays});
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace MedicineTracker.Tests
             {
                 LastTaken = MedicineTrackerDateUtils.TodayWithoutTime(),
                 DailyDose = 1,
-                Stock = WarningDays + 1
+                Stock = LeadTimeDays + 1
             };
 
             var actions = _generator.GetActions(medication);
@@ -40,7 +40,7 @@ namespace MedicineTracker.Tests
             {
                 LastTaken = MedicineTrackerDateUtils.TodayWithoutTime().AddDays(-1),
                 DailyDose = 1,
-                Stock = WarningDays + 1
+                Stock = LeadTimeDays + 1
             };
 
             var actions = _generator.GetActions(medication);
@@ -55,7 +55,7 @@ namespace MedicineTracker.Tests
             {
                 LastTaken = MedicineTrackerDateUtils.TodayWithoutTime(),
                 DailyDose = 1,
-                Stock = WarningDays
+                Stock = LeadTimeDays
             };
 
             var actions = _generator.GetActions(medication);
@@ -70,7 +70,7 @@ namespace MedicineTracker.Tests
             {
                 LastTaken = MedicineTrackerDateUtils.TodayWithoutTime().AddDays(-1),
                 DailyDose = 1,
-                Stock = WarningDays
+                Stock = LeadTimeDays
             };
 
             var actions = _generator.GetActions(medication);

@@ -34,6 +34,7 @@ namespace MedicineTracker.ConsoleUtils
             table.AddColumn("Daily Dose");
             table.AddColumn("Days Left");
             table.AddColumn("Last Day");
+            table.AddColumns("Order More");
             table.AddColumn("Actions");
 
             foreach (var medication in medications)
@@ -50,6 +51,7 @@ namespace MedicineTracker.ConsoleUtils
                     GetCellData(colour, medication.DailyDose.ToString()),
                     GetCellData(colour, medication.DaysRemaining().ToString()),
                     GetCellData(colour, medication.LastDay().ToShortDateString()),
+                    GetCellData(colour, medication.LastDay().AddDays(-_settings.LeadTimeDays).ToShortDateString()),
                     GetCellData(colour, actions)
                 };
 
