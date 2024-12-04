@@ -48,9 +48,13 @@ namespace MedicineTracker.BusinessLogic.Stock
         /// <param name="doses"></param>
         public void Decrement(IEnumerable<Medication> medications, int doses)
         {
+            var today = MedicineTrackerDateUtils.TodayWithoutTime();
             for (int i = 0; i < medications.Count(); i++)
             {
-                UpdateStock(medications, i, -doses);
+                if (medications.ElementAt(i).LastTaken < today)
+                {
+                    UpdateStock(medications, i, -doses);
+                }
             }
         }
 

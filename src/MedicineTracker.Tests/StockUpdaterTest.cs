@@ -167,6 +167,15 @@ namespace MedicineTracker.Tests
             Assert.AreEqual(5, _medications[0].Stock);
             Assert.AreEqual(expectedDate, _medications[0].LastTaken);
         }
+        
+        [TestMethod]
+        public void TakeDoseForAllMedicationsIgnoresUpToDateTest()
+        {
+            _medications[0].Stock = 5;
+            _medications[0].LastTaken = MedicineTrackerDateUtils.TodayWithoutTime();
+            _updater.Decrement(_medications, 1);
+            Assert.AreEqual(5, _medications[0].Stock);
+        }
 
         [TestMethod]
         [ExpectedException(typeof(StockDateOutOfRangeException))]
@@ -175,15 +184,6 @@ namespace MedicineTracker.Tests
             _medications[0].Stock = 5;
             _medications[0].LastTaken = MedicineTrackerDateUtils.TodayWithoutTime();
             _updater.Decrement(_medications, 0, 1);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(StockDateOutOfRangeException))]
-        public void CannotTakeFutureDoseForAllMedicationsTest()
-        {
-            _medications[0].Stock = 5;
-            _medications[0].LastTaken = MedicineTrackerDateUtils.TodayWithoutTime();
-            _updater.Decrement(_medications, 1);
         }
 
         [TestMethod]
